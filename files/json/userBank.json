@@ -1,0 +1,22 @@
+{
+  "account_id": "A101",
+  "name": "John Doe",
+  "email": "john.doe@example.com",
+  "phone": "9876543210",
+  "balance": 25000.75,
+  "account_type": "Savings",
+  "transactions": [
+    {
+      "transaction_id": "T1001",
+      "type": "Credit",
+      "amount": 5000.00,
+      "date": "2024-03-01"
+    },
+    {
+      "transaction_id": "T1002",
+      "type": "Debit",
+      "amount": 2000.00,
+      "date": "2024-03-05"
+    }
+  ]
+}
