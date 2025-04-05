@@ -7,7 +7,7 @@ import java.io.IOException;
 public class CountRowsCSV {
     public static void main(String[] args) {
 
-        String filename = "contact.csv";
+        String filename = "files/csv/contact.csv";
 
         // try-resources block for auto close resource
         // read the file with buffer reader

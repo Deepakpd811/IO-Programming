@@ -7,7 +7,7 @@ import java.io.IOException;
 public class ReadCSV {
     public static void main(String[] args) {
 
-        String filename = "contact.csv";
+        String filename = "files/csv/contact.csv";
 
         // try-resoures block for auto close resource
         // read the file with buffer reader

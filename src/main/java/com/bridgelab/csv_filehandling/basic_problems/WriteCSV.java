@@ -8,7 +8,7 @@ public class WriteCSV {
 
     public static void main(String[] args) {
 
-        String filename ="contact.csv";
+        String filename ="files/csv/contact.csv";
 
         try(BufferedWriter bw = new BufferedWriter(new FileWriter(filename))) {
 

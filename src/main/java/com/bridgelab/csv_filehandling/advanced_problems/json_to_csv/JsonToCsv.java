@@ -3,6 +3,7 @@ package com.bridgelab.csv_filehandling.advanced_problems.json_to_csv;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.opencsv.CSVReader;
 import com.opencsv.CSVWriter;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,11 +11,11 @@ import java.util.List;
 public class JsonToCsv {
 
     public static void convertJsonToCsv(String jsonFileName, String csvFileName) {
-        ObjectMapper objectMapper = new ObjectMapper();
 
         try {
+            ObjectMapper objectMapper = new ObjectMapper();
             // Deserialize the JSON file into a List of Student objects
-            List<Student> students = objectMapper.readValue(new File(jsonFileName), objectMapper.getTypeFactory().constructCollectionType(List.class, Student.class));
+            Student students = objectMapper.readValue(new File(jsonFileName), Student.class);
 
             // Write the List of students to the CSV file
             writeToCsv(students, csvFileName);
@@ -24,7 +25,7 @@ public class JsonToCsv {
         }
     }
 
-    private static void writeToCsv(List<Student> students, String csvFileName) {
+    private static void writeToCsv(Student stud, String csvFileName) {
 
         try (CSVWriter writer = new CSVWriter(new FileWriter(csvFileName))) {
             // Write header
@@ -32,11 +33,10 @@ public class JsonToCsv {
             writer.writeNext(header);
 
             // Write student data
-            for (Student stud : students) {
-                String[] data = {stud.getId(), stud.getName(), String.valueOf(stud.getAge())};
-                writer.writeNext(data); // Write each student's record
-            }
+            String[] data = {stud.getId(), stud.getName(), String.valueOf(stud.getAge())};
+            writer.writeNext(data); // Write student's record in csv
 
+            System.out.println("Write successfull");
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -73,7 +73,7 @@ public class JsonToCsv {
     }
 
     public static void main(String[] args) {
-        String jsonFileName = "students.json";
+        String jsonFileName = "student.json";
         String csvFileName = "newstudents.csv";
 
         //Convert json file to csv file

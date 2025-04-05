@@ -27,7 +27,7 @@ public class Student {
     }
 
 
-    // ✅ toString() - Print object in a readable format
+    // toString() - Print object in a readable format
     @Override
     public String toString() {
         return id + " | " + name + " | " + age;
